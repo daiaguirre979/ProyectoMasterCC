@@ -2,7 +2,9 @@
 
 Se detalla el proyecto a realizar como trabajo para la asignatura de Cloud Computing. El repositorio del proyecto se encuentra en la siguiente URL: https://daiaguirre979.github.io/ProyectoMasterCC/
 
+
 ***
+
 
 ### Descripción del proyecto
 
@@ -10,14 +12,15 @@ Creación de una pagina web con información relevante de la urbanización,adema
 
 ### Aplicaciones a utilizar.
 
-1. Rest API: Permitir el acceso y consumo del servicio vía HTTP,métodos HTTP como GET, POST, PUT y DELETE
+* Rest API: Permitir el acceso y consumo del servicio vía HTTP,métodos HTTP como GET, POST, PUT y DELETE
+
+
+* Mysql: Necesitaremos un motor de base de datos para almacenar la infromación que queremos proveer como servcio.
+
+
+* Apache: Nos permite proporcionar un servidor seguro, eficiente y extensible que proporcione servicios HTTP.
+
 ![](https://i.stack.imgur.com/f2D05.png)
-
-2. Mysql: Necesitaremos un motor de base de datos para almacenar la infromación que queremos proveer como servcio.
-![](http://www.grupotitan.com/wp-content/uploads/2015/05/mysql-respaldo-767x767.png)
-
-3. Apache: Nos permite proporcionar un servidor seguro, eficiente y extensible que proporcione servicios HTTP.
-![](http://www.grupotitan.com/wp-content/uploads/2015/05/mysql-respaldo-767x767.png)
 
 
 ### Arquitectura
