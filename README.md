@@ -11,13 +11,13 @@ Creación de una pagina web con información relevante de la urbanización,adema
 ### Aplicaciones a utilizar.
 
 1. Rest API: Permitir el acceso y consumo del servicio vía HTTP,métodos HTTP como GET, POST, PUT y DELETE
-[](https://i.stack.imgur.com/f2D05.png)
+![](https://i.stack.imgur.com/f2D05.png)
 
 2. Mysql: Necesitaremos un motor de base de datos para almacenar la infromación que queremos proveer como servcio.
-[](http://www.grupotitan.com/wp-content/uploads/2015/05/mysql-respaldo-767x767.png)
+![](http://www.grupotitan.com/wp-content/uploads/2015/05/mysql-respaldo-767x767.png)
 
 3. Apache: Nos permite proporcionar un servidor seguro, eficiente y extensible que proporcione servicios HTTP.
-[](http://www.grupotitan.com/wp-content/uploads/2015/05/mysql-respaldo-767x767.png)
+![](http://www.grupotitan.com/wp-content/uploads/2015/05/mysql-respaldo-767x767.png)
 
 
 ### Arquitectura
@@ -30,7 +30,7 @@ Si bien hay muchos sistemas populares de administración de configuraciones disp
 
 ### Licencia
 
-Este proyecto será liberado bajo la licencia *[GNU GLP V3]("https://github.com/daiaguirre979/ProyectoMasterCC/blob/master/LICENSE)
+Este proyecto será liberado bajo la licencia [GNU GLP V3](https://github.com/daiaguirre979/ProyectoMasterCC/blob/master/LICENSE)
 
 
 
