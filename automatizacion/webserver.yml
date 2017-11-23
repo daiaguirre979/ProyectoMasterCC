@@ -1,0 +1,22 @@
+---
+- hosts: all
+  sudo: yes
+
+  tasks:
+  ##
+   # Instalación de paquetes necesarios.
+  ##
+   - name: General | Instalación de paquetes requeridos.
+     action: apt pkg={{ item }} state=installed
+     with_items:
+     - apache2
+     - mysql-client
+     - mysql-server
+     - php7.0
+     - libapache2-mod-php7.0
+  
+  ##
+   # Configuración de Apache2.
+  ##
+   - name: Apache2 | Habilitar módulos
+     action: command a2enmod rewrite vhost_alias
