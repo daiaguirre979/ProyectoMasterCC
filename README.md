@@ -31,6 +31,10 @@ Arquitectura basada en microservicios, serán desplegados en la nube, en una má
 
 Si bien hay muchos sistemas populares de administración de configuraciones disponibles para sistemas Linux, como Chef,Puppet,Ansible; he elegido este último debido a que no requiere la instación de  ningún software adicional en las computadoras del cliente, de esta forma simplifica la administración de servidores. Cualquier servidor que tenga un puerto SSH expuesto puede incluirse en la configuración de Ansible.
 
+## Automatización
+
+Ha sido realizada utilizando el cliente de azure. Se ha configurado una maquina virtual Ubuntu y hemos configurado el provisionamiento antes utilizado. Mas información --> [README](https://github.com/daiaguirre979/ProyectoMasterCC/blob/master/automatizacion/README.md)
+
 ### Licencia
 
 Este proyecto será liberado bajo la licencia [GNU GLP V3](https://github.com/daiaguirre979/ProyectoMasterCC/blob/master/LICENSE)
