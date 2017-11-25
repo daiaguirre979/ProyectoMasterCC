@@ -36,7 +36,7 @@ Si bien hay muchos sistemas populares de administración de configuraciones disp
 Ha sido realizada utilizando el cliente de azure. Se ha configurado una maquina virtual Ubuntu y hemos configurado el provisionamiento antes utilizado. En el siguiente link se detalla como ejecutar el despliegue --> [README](https://github.com/daiaguirre979/ProyectoMasterCC/blob/master/automatizacion/README.md)
 
 La maquina desplegada del hito3.
-Despliegue: 104.42.23.144
+Despliegue: 40.118.253.227
 
 ### Licencia
 
