@@ -46,7 +46,7 @@ La maquina desplegada del hito4.
 Despliegue: 52.232.21.85 
 
 
-### Licencia
+## Licencia
 
 Este proyecto será liberado bajo la licencia [GNU GLP V3](https://github.com/daiaguirre979/ProyectoMasterCC/blob/master/LICENSE)
 
