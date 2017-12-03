@@ -41,8 +41,7 @@ La maquina desplegada del hito3.
 
 Realizada con vagrant en una mv como cliente de azure. Para revisar la configuración pueden revisar en el siguiente [Enlace](https://github.com/daiaguirre979/ProyectoMasterCC/blob/master/orquestacion/README.md)
 
-La maquina desplegada del hito4.
-Despliegue: 52.232.21.85 
+	Despliegue Vagrant: 52.233.152.223 
 
 
 ## Licencia
