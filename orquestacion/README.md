@@ -56,7 +56,7 @@ Nos devuelve la siguiente informacion
 >>  vagrant up --provider=azure
 >>
 
-![Con titulo](https://raw.githubusercontent.com/daiaguirre979/CC-Master/master/1-orq.png "orquestacion")
+![Con titulo](https://github.com/daiaguirre979/CC-Master/blob/master/1-orq.png "orquestacion")
 
-![Con titulo](https://raw.githubusercontent.com/daiaguirre979/CC-Master/master/1-orq.png "orquestacion")
+![Con titulo](https://github.com/daiaguirre979/CC-Master/blob/master/3-orq.png "orquestacion")
 
