@@ -1,35 +1,31 @@
-#++++++++++++++++++++++++++++++++++++++
-# Debian 8 PHP-Apache Docker container
-#++++++++++++++++++++++++++++++++++++++
+FROM 1and1internet/ubuntu-16-nginx-php-phpmyadmin:latest
+MAINTAINER Brian Wojtczak <brian.wojtczak@1and1.co.uk>
+ARG DEBIAN_FRONTEND=noninteractive
 
-FROM webdevops/php:debian-8-php7
-MAINTAINER info@webdevops.io
+COPY files/ /
 
-ENV WEB_DOCUMENT_ROOT  /application/code/
-ENV WEB_DOCUMENT_INDEX index.php
-ENV WEB_ALIAS_DOMAIN   *.vm
+RUN \
+  groupadd mysql && \
+  useradd -g mysql mysql && \
+  apt-get update && \
+  apt-get install -y gettext-base mysql-server pwgen && \
+  rm -rf /var/lib/apt/lists/* /var/lib/mysql /etc/mysql* && \
+  mkdir --mode=0777 /var/lib/mysql /var/run/mysqld /etc/mysql && \
+  chmod 0777 /docker-entrypoint-initdb.d && \
+  chmod -R 0775 /etc/mysql && \
+  chmod -R 0755 /hooks && \
+  chmod -R 0777 /var/log/mysql && \
+  cd /opt/configurability/src/mysql_config_translator && \
+  pip --no-cache install --upgrade pip && \
+  pip --no-cache install --upgrade .
 
-# Install apache
-RUN /usr/local/bin/apt-install \
-        apache2 \
-        apache2-mpm-worker \
-        libapache2-mod-fastcgi \
-	&& sed -ri ' \
-		s!^(\s*CustomLog)\s+\S+!\1 /proc/self/fd/1!g; \
-		s!^(\s*ErrorLog)\s+\S+!\1 /proc/self/fd/2!g; \
-		' /etc/apache2/apache2.conf \
-	&& rm -f /etc/apache2/sites-enabled/* \
-	&& a2enmod actions fastcgi ssl rewrite headers
+ENV DISABLE_PHPMYADMIN=0 \
+    PMA_ARBITRARY=0 \
+    PMA_HOST=localhost \
+    MYSQL_GENERAL_LOG=0 \
+    MYSQL_QUERY_CACHE_TYPE=1 \
+    MYSQL_QUERY_CACHE_SIZE=16M \
+    MYSQL_QUERY_CACHE_LIMIT=1M
 
-# Deploy scripts/configurations
-COPY conf/ /opt/docker/
-RUN bash /opt/docker/bin/control.sh provision.role webdevops-apache \
-    && bash /opt/docker/bin/control.sh provision.role webdevops-php-apache \
-    && bash /opt/docker/bin/bootstrap.sh
-
-RUN chmod +x /opt/docker/bin/service.d/httpd.sh
-
-EXPOSE 80
-EXPOSE 443
-
-CMD ["supervisord"]
+EXPOSE 3306 8080
+VOLUME /var/lib/mysql/
