@@ -6,4 +6,4 @@ sudo mysql_secure_installation &&
 sudo apt-get install php5 libapache2-mod-php5 php5-mcrypt &&
 sudo vim /etc/apache2/mods-enabled/dir.conf &&
 sudo service apache2 restart &&
-sudo echo "<?php phpinfo(); ?>" > /var/www/html/informacion.php
+echo "<?php phpinfo(); ?>" > /var/www/html/informacion.php
