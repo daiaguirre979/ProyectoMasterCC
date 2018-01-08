@@ -1,27 +1,3 @@
-docker logo
-
-apache
-Dashboard
-Explore
-Organizations
-Create
- Create Repository
- Create Automated Build
- Create Organization
-daiaguirre
-My Profile
-Documentation
-Help
-Settings
-Log out
-PUBLIC | AUTOMATED BUILD
-zabbix/zabbix-web-apache-mysql
-Last pushed: a day ago
-Repo Info
-Tags
-Dockerfile
-Build Details
-Dockerfile
 FROM ubuntu:trusty
 LABEL maintainer "Alexey Pustovalov <alexey.pustovalov@zabbix.com>"
 
@@ -121,6 +97,3 @@ ADD run_zabbix_component.sh /
 ENTRYPOINT ["/bin/bash"]
 
 CMD ["/run_zabbix_component.sh", "frontend", "mysql", "apache"]
-Source Repository
-  zabbix/zabbix-docker
-click
