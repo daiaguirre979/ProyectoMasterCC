@@ -1,26 +1,23 @@
-FROM debian:jessie
+# this cannot upgrade to Alpine 3.5 due to https://github.com/libressl-portable/portable/issues/147
+# given that 2.2.x is a "legacy branch", and is in security-fixes-only mode upstream, this should be reasonably fine
+#   "Minimal maintenance patches of 2.2.x are expected throughout this period, and users are strongly encouraged to promptly complete their transitions to the the 2.4.x flavour of httpd to benefit from a much larger assortment of minor security and bug fixes as well as new features."
+# https://httpd.apache.org/
+FROM alpine:3.4
 
-# add our user and group first to make sure their IDs get assigned consistently, regardless of whatever dependencies get added
-#RUN groupadd -r www-data && useradd -r --create-home -g www-data www-data
+# ensure www-data user exists
+RUN set -x \
+	&& addgroup -g 82 -S www-data \
+	&& adduser -u 82 -D -S -G www-data www-data
+# 82 is the standard uid/gid for "www-data" in Alpine
+# http://git.alpinelinux.org/cgit/aports/tree/main/apache2/apache2.pre-install?h=v3.3.2
+# http://git.alpinelinux.org/cgit/aports/tree/main/lighttpd/lighttpd.pre-install?h=v3.3.2
+# http://git.alpinelinux.org/cgit/aports/tree/main/nginx-initscripts/nginx-initscripts.pre-install?h=v3.3.2
 
 ENV HTTPD_PREFIX /usr/local/apache2
 ENV PATH $HTTPD_PREFIX/bin:$PATH
 RUN mkdir -p "$HTTPD_PREFIX" \
 	&& chown www-data:www-data "$HTTPD_PREFIX"
 WORKDIR $HTTPD_PREFIX
-
-# install httpd runtime dependencies
-# https://httpd.apache.org/docs/2.2/install.html#requirements
-RUN apt-get update \
-	&& apt-get install -y --no-install-recommends \
-		libapr1 \
-		libaprutil1 \
-		libaprutil1-ldap \
-		libapr1-dev \
-		libaprutil1-dev \
-		libpcre++0 \
-		libssl1.0.0 \
-	&& rm -r /var/lib/apt/lists/*
 
 ENV HTTPD_VERSION 2.2.34
 ENV HTTPD_SHA256 e53183d5dfac5740d768b4c9bea193b1099f4b06b57e5f28d7caaf9ea7498160
@@ -39,19 +36,28 @@ ENV APACHE_DIST_URLS \
 # see https://httpd.apache.org/docs/2.2/install.html#requirements
 RUN set -eux; \
 	\
-	buildDeps=' \
-		bzip2 \
-		ca-certificates \
-		dpkg-dev \
-		gcc \
-		libpcre++-dev \
-		libssl-dev \
-		make \
-		wget \
+	runDeps=' \
+		apr-dev \
+		apr-util-dev \
+		apr-util-ldap \
+		perl \
 	'; \
-	apt-get update; \
-	apt-get install -y --no-install-recommends -V $buildDeps; \
-	rm -r /var/lib/apt/lists/*; \
+	apk add --no-cache --virtual .build-deps \
+		$runDeps \
+		ca-certificates \
+		coreutils \
+		dpkg-dev dpkg \
+		gcc \
+		gnupg \
+		libc-dev \
+		make \
+		openssl \
+		openssl-dev \
+		pcre-dev \
+		tar \
+# install GNU wget (Busybox wget in Alpine 3.4 gives us "wget: error getting response: Connection reset by peer" for some reason)
+		wget \
+	; \
 	\
 	ddist() { \
 		local f="$1"; shift; \
@@ -113,7 +119,14 @@ RUN set -eux; \
 		-e 's!^(\s*ErrorLog)\s+\S+!\1 /proc/self/fd/2!g' \
 		"$HTTPD_PREFIX/conf/httpd.conf"; \
 	\
-	apt-get purge -y --auto-remove $buildDeps
+	runDeps="$runDeps $( \
+		scanelf --needed --nobanner --format '%n#p' --recursive /usr/local \
+			| tr ',' '\n' \
+			| sort -u \
+			| awk 'system("[ -e /usr/local/lib/" $1 " ]") == 0 { next } { print "so:" $1 }' \
+	)"; \
+	apk add --virtual .httpd-rundeps $runDeps; \
+	apk del .build-deps
 
 COPY httpd-foreground /usr/local/bin/
 
