@@ -1,9 +1,25 @@
-RUN sudo apt-get update &&
-sudo apt-get install apache2 &&
-sudo apt-get install mysql-server php5-mysql &&
-sudo mysql_install_db &&
-sudo mysql_secure_installation &&
-sudo apt-get install php5 libapache2-mod-php5 php5-mcrypt &&
-sudo vim /etc/apache2/mods-enabled/dir.conf &&
-sudo service apache2 restart &&
-echo "<?php phpinfo(); ?>" > /var/www/html/informacion.php
+FROM yieldr/apache-php
+
+ENV CRON_VERSION 0.8.0
+ENV CRON_OS linux
+ENV CRON_ARCH amd64
+
+RUN set -x \
+	&& apt-get update -y --no-install-recommends \
+	&& apt-get install -y g++ make \
+	&& pecl install grpc-1.4.6 \
+	&& echo "extension=grpc.so" >> /etc/php5/cli/php.ini \
+	&& pecl config-set php_ini /etc/php5/cli/php.ini \
+	&& echo "extension=grpc.so" >> /etc/php5/apache2/php.ini \
+	&& pecl config-set php_ini /etc/php5/apache2/php.ini \
+	&& mkdir -p /home/code \
+	&& ln -sf /home/code/web /var/www/code \
+	&& chown www-data:www-data -R /home/code \
+	&& curl -o /usr/bin/crond -sSL https://github.com/alexkappa/crond/releases/download/v$CRON_VERSION/crond-$CRON_OS-$CRON_ARCH \
+	&& chmod +x /usr/bin/crond
+
+COPY vhost.conf /etc/apache2/sites-available/000-default.conf
+
+ONBUILD ADD . /home/code
+
+CMD ["apachectl", "-D", "FOREGROUND"]
