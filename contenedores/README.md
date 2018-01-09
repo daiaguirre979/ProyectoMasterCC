@@ -21,7 +21,7 @@ Una herramienta que nos permite crear contenedores y que vamos a utlizar en este
 
 3. Creamos una cuenta en dockerHub enlazando nuestro repositorio de Github.
 
-4. Despliegue de la image docker en azure
+4. Despliegue de la image docker en azure.
 
 >
 >> az webapp deployment user set --user-name daiaguirre --password password
