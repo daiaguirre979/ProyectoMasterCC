@@ -1,4 +1,4 @@
 FROM python:2.7-onbuild
-MAINTAINER Alexander Pankov
+MAINTAINER Dayana Aguirre
 
 CMD ["python", "./run.py"]
