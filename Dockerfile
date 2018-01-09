@@ -3,3 +3,5 @@ MAINTAINER Dayana Aguirre
 
 CMD ["python", "./run.py"]
 EXPOSE 5000
+
+CMD ["eve.py"]
