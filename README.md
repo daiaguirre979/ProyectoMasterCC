@@ -45,9 +45,9 @@ Realizada con vagrant en una mv como cliente de azure. Para revisar la configura
 
 
 ## Contenedores
-Configurada con Docker. Puede revisar mas detalles en este [Enlace](https://github.com/daiaguirre979/ProyectoMasterCC/blob/master/contenededores/README.md)
+Configurada con Docker. Puede revisar mas detalles en este [Enlace](https://github.com/daiaguirre979/ProyectoMasterCC/blob/master/contenedores/README.md)
 
-Contenedor: http://daiihito5.azurewebsites.net/
+Contenedor: http://daicontendor.azurewebsites.net/
 
 Dockerhub: https://hub.docker.com/r/daiaguirre/proyectomastercc/
 
