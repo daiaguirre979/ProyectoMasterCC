@@ -8,9 +8,13 @@ Una herramienta que nos permite crear contenedores y que vamos a utlizar en este
 
 >
 >> sudo apt-get update
+>
 >> sudo apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
+
 >> echo "deb https://apt.dockerproject.org/repo ubuntu-xenial main" | sudo tee /etc/apt/sources.list.d/docker.list
+
 >> apt-cache policy docker-engine
+
 >> sudo apt-get install -y docker-engine
 >>
 
@@ -25,9 +29,13 @@ Una herramienta que nos permite crear contenedores y que vamos a utlizar en este
 
 >
 >> az webapp deployment user set --user-name daiaguirre --password password
+
 >> az group create --name myGroupDaii --location "West Europe"
+
 >> az appservice plan create --name myAppServicePlann --resource-group myGroupDaii --sku S1 --is-linux
+
 >> az webapp create --resource-group myGroupDaii --plan myAppServicePlann --name daiihito5 --deployment-container-image-name daiaguirre/proyectomastercc
+
 >> 
 
 
@@ -36,6 +44,6 @@ Una herramienta que nos permite crear contenedores y que vamos a utlizar en este
 
 ![](https://github.com/daiaguirre979/CC-Master/blob/master/docker2.png)
 
-![](https://github.com/daiaguirre979/CC-Master/blob/master/docker2.png)
+![](https://github.com/daiaguirre979/CC-Master/blob/master/docker3.png)
 
 
