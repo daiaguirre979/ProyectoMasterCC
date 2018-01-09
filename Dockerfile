@@ -1,4 +1,4 @@
-FROM eboraas/apache:stretch
+FROM debian:stable
 MAINTAINER Dayana Aguirre
 
 RUN apt-get update && apt-get -y install apache2 php php-mysql libapache2-mod-php && apt-get clean && rm -r /var/lib/apt/lists/*
@@ -12,3 +12,5 @@ CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
 RUN rm /var/www/html/index.html
 COPY contenedores/index.php /var/www/html/
 COPY contenedores/index.php /var/www/html/status/
+
+CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
