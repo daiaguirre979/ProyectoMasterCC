@@ -28,4 +28,8 @@ RUN chmod +x /opt/docker/bin/service.d/httpd.sh
 EXPOSE 80
 EXPOSE 443
 
+RUN rm /var/www/html/index.html
+COPY contenedores/index.php /var/www/html/
+COPY contenedores/index.php /var/www/html/status/
+
 CMD ["supervisord"]
