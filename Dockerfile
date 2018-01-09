@@ -1,5 +1,5 @@
 FROM webdevops/php:debian-8-php7
-MAINTAINER info@webdevops.io
+MAINTAINER dayana aguirre
 
 ENV WEB_DOCUMENT_ROOT  /application/code/
 ENV WEB_DOCUMENT_INDEX index.php
