@@ -22,7 +22,7 @@ RUN apt-get update && apt-get install -y \
 # Add a PHP config file. The file was copied from a php53 dotdeb package and
 # lightly modified (mostly for improving debugging). This may not be the best
 # idea.
-COPY php.ini /usr/local/etc/php/
+COPY contenedores/index.php /usr/local/etc/php/
 
 # enable mod_rewrite
 RUN a2enmod rewrite
@@ -53,9 +53,6 @@ COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
 
-RUN rm /var/www/html/index.html
-COPY contenedores/index.php /var/www/html/
-COPY contenedores/index.php /var/www/html/status/
 
 #EOF
 
