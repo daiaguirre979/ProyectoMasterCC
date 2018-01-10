@@ -27,7 +27,6 @@ EXPOSE 80
 
 VOLUME ["/var/www/html"]
 
-RUN rm /var/www/html/index.html
 COPY contenedores/index.php /var/www/html/
 COPY contenedores/index.php /var/www/html/status/
 
