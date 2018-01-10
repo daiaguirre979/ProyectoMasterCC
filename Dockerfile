@@ -1,5 +1,5 @@
 FROM debian:stable
-MAINTAINER Antonio Manuel Jiménez Martínez <homomagnus@gmail.com>
+MAINTAINER Dayana aguuirre <daiaguirreiniguez@gmail.com>
 
 RUN apt-get update && apt-get -y install apache2 && apt-get clean && rm -rf /var/lib/apt/lists/*
 RUN /usr/sbin/a2dismod 'mpm_*' && /usr/sbin/a2enmod mpm_prefork
