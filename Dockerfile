@@ -1,5 +1,5 @@
 FROM centos:centos7
-MAINTAINER Won Xin <woxnin@gmail.com>
+MAINTAINER Dayana Aguirre <daiaguirre@correo.ugr.es>
 
 RUN yum update -y \
 	&& yum install -y epel-release \
