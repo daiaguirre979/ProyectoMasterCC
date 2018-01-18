@@ -1,33 +1,18 @@
-FROM centos:centos7
-MAINTAINER Dayana Aguirre <daiaguirre@correo.ugr.es>
+FROM ubuntu:14.04
+MAINTAINER Dayana <dayanna Aguirre>
 
-RUN yum update -y \
-	&& yum install -y epel-release \
-	&& yum install -y \
-	httpd \
-	libjpeg* \
-	php \
-	php-bcmath \
-	php-devel \
-	php-gd \
-	php-php-gettext \
-	php-imap \
-	php-ldap \
-	php-mbstring \
-	php-mcrypt \
-	php-mysqlnd \
-	php-pear-Net-Socket \
-	php-xml \
-	php-xmlrpc \
-	&& yum clean all
 
-WORKDIR /var/www/html
+RUN apt-get update -y
+RUN apt-get install -y python-pip
+RUN pip install Flask
+RUN pip install SQLAlchemy
+RUN pip install Flask-SQLAlchemy
 
-EXPOSE 80
+WORKDIR /tmp
 
-VOLUME ["/var/www/html"]
+COPY servicio.py /tmp
 
-COPY contenedores/index.php /var/www/html/
-COPY contenedores/index.php /var/www/html/status/
+EXPOSE  5000
 
-CMD ["httpd", "-DFOREGROUND"]
+ENTRYPOINT ["python"]
+CMD ["servicio.py"]
