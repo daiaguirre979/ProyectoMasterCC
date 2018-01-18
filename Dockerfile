@@ -10,7 +10,7 @@ RUN pip install Flask-SQLAlchemy
 
 WORKDIR /tmp
 
-COPY servicio.py /tmp
+COPY contenedores/servicio.py /tmp
 
 EXPOSE  5000
 
