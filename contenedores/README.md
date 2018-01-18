@@ -1,6 +1,6 @@
 ## Contenedores 
 
-Una herramienta que nos permite crear contenedores y que vamos a utlizar en este proyecto es Docker, el cual nos permite tener aplcaciones empaquetadas de forma que sean autosifucientes es decir, que dispongan de todas las bibliotecas y las dependencias que necesiten. He elegido esta herramienta ya que es fácil y ligero a la hora de instalar y es compatible con muchos sitemas operativos y sistemas cloud. En nuestro caso, hemos procedido a seleccionar una imagen que podemos ver en este [enlace]( https://github.com/wonxin/docker-httpd-php/blob/master/Dockerfile). 
+Una herramienta que nos permite crear contenedores y que vamos a utlizar en este proyecto es Docker, el cual nos permite tener aplcaciones empaquetadas de forma que sean autosifucientes es decir, que dispongan de todas las bibliotecas y las dependencias que necesiten. He elegido esta herramienta ya que es fácil y ligero a la hora de instalar y es compatible con muchos sitemas operativos y sistemas cloud. . 
 
 ### Detalle de los pasos a seguir
 
