@@ -53,7 +53,7 @@ Dockerhub: https://hub.docker.com/r/daiaguirre/proyectomastercc/
 
 ## Licencia
 
-Este proyecto será liberado bajo la licencia [GNU GLP V3](https://github.com/daiaguirre979/ProyectoMasterCC/blob/master/LICENSE)
+Este proyecto será liberado bajo la licencia [GNU GPL V3](https://github.com/daiaguirre979/ProyectoMasterCC/blob/master/LICENSE)
 
 
 
