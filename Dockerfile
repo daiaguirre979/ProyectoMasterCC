@@ -1,18 +1,14 @@
-FROM ubuntu:14.04
+FROM ubuntu
 MAINTAINER Dayana <dayanna Aguirre>
 
 
 RUN apt-get update -y
-RUN apt-get install -y python-pip
-RUN pip install Flask
-RUN pip install SQLAlchemy
-RUN pip install Flask-SQLAlchemy
-
-WORKDIR /tmp
-
-COPY contenedores/servicio.py /tmp
-
-EXPOSE  5000
+RUN apt-get install -y python-pip python-dev build-essential
+COPY ./var/app
+WORKDIR /var/app
+COPY ./requirements.txt /var/app
+RUN pip install -r requirements.txt
+COPY ./servicio.py /var/app
 
 ENTRYPOINT ["python"]
 CMD ["servicio.py"]
