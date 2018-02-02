@@ -2,6 +2,7 @@ import time
 from flask import Flask, jsonify, render_template, flash, redirect, request, url_for
 from flask_sqlalchemy import SQLAlchemy
 
+#Variables 
 DBUSER = 'dayanna'
 DBPASS = 'sistemas'
 DBHOST = 'database'
@@ -10,7 +11,8 @@ DBNAME = 'productosdb'
 
 
 app = Flask(__name__)
-# app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///productos.sqlite3'
+
+#Configuración de bd
 app.config['SQLALCHEMY_DATABASE_URI'] = \
     'postgresql+psycopg2://{user}:{passwd}@{host}:{port}/{db}'.format(
         user=DBUSER,
@@ -24,6 +26,7 @@ app.secret_key = 'sistemas'
 
 db = SQLAlchemy(app)
 
+# Creación tabla bd
 class productos(db.Model):
     id = db.Column('producto_id', db.Integer, primary_key=True)
     name = db.Column(db.String(100))
