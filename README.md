@@ -8,20 +8,7 @@ Se detalla el proyecto a realizar como trabajo para la asignatura de Cloud Compu
 
 ### Descripción del proyecto
 
-Creación de una pagina web con información relevante de la urbanización,ademas de que permita realizar pagos de alicuotas por medio de paypal de esta forma se evitara atrasos en los cobros de las misma, actualizando información de los residentes..
-
-### Aplicaciones a utilizar.
-
-* Rest API: Permitir el acceso y consumo del servicio vía HTTP,métodos HTTP como GET, POST, PUT y DELETE
-
-
-* Mysql: Necesitaremos un motor de base de datos para almacenar la infromación que queremos proveer como servcio.
-
-
-* Apache: Nos permite proporcionar un servidor seguro, eficiente y extensible que proporcione servicios HTTP.
-
-![](https://i.stack.imgur.com/f2D05.png)
-
+Creación de una sitio web donde incluya una rest Api la cual, nos permita el acceso y consumo del servicio vía HTTP, métodos HTTP como GET, POST, PUT y DELETE para productos de una farmacia, la misma que se la desarrollara con Flask y postgresSQL como manejador de base de datos.
 
 ### Arquitectura
 
