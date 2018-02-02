@@ -51,6 +51,13 @@ Contenedor: http://daicontendor2.azurewebsites.net
 
 Dockerhub: https://hub.docker.com/r/daiaguirre/proyectomastercc/
 
+
+## Composición de servicios
+
+Con el fin de hacer funcionar nuestra API - REST, la cual he desarrollado en el hito5 con Flask adiccionándole una base de datos PostreSQL, vamos a necesitar utilizar múltiples servicios (base de datos y servicio web) Puede revisar mas detalles en este [Enlace](https://github.com/daiaguirre979/ProyectoMasterCC/tree/master/composicion)
+
+Hito6: http://daihito6.eastus.cloudapp.azure.com
+
 ## Licencia
 
 Este proyecto será liberado bajo la licencia [GNU GPL V3](https://github.com/daiaguirre979/ProyectoMasterCC/blob/master/LICENSE)
