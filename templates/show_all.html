@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <title>Productos Api Rest</title>
+    </head>
+    <body>
+        <h3>
+            <a href="{{ url_for('home') }}">PRODUCTOS</a>
+        </h3>
+        <form action="{{ request.path }}" method="post">
+            Nombre:<br>
+            <input type="text" name="name"><br>
+            Descripcion:<br>
+            <input type="text" name="descripcion"><br>
+            Valor:<br>
+            <input type="text" name="valor"><br>
+            <input type="submit" value="Submit">
+        </form>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Descripcion</th>
+                    <th>Valor</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for producto in productos %}
+                <tr>
+                    <td>{{ producto.name }}</td>
+                    <td>{{ producto.descripcion }}</td>
+			    <td>{{ producto.valor }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </body>
+</html>
